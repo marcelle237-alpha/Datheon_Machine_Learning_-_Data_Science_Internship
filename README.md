@@ -16,12 +16,14 @@ This repository contains my project submissions for the **Datheon Machine Learni
 | # | Task | Highlights | Stack |
 |---|------|------------|-------|
 | 1 | [**Multi-Class Benchmark Classification Pipeline (Iris)**](task-1-iris-wine-classification/) | Leakage-safe preprocessing, Logistic Regression vs. Decision Tree, confusion matrices, decision boundaries | Python · Pandas · Scikit-learn · Seaborn |
+| 2 | [**Real Estate Housing Price Prediction (Ridge & Lasso)**](task-2-california-housing-regression/) | Feature engineering, VIF multicollinearity analysis, OLS vs. Ridge vs. Lasso with GridSearchCV, residual analysis | Python · Pandas · Scikit-learn · Seaborn |
 
 ## 🛠️ Skills demonstrated
 - **Data handling:** loading, inspecting and exploring datasets with Pandas
 - **Preprocessing:** stratified train/test splits, feature scaling without data leakage
-- **Modeling:** Logistic Regression, Decision Trees
-- **Evaluation:** accuracy, precision, recall, F1, classification reports, confusion matrices
+- **Feature engineering:** ratio and interaction features, multicollinearity analysis (VIF)
+- **Modeling:** Logistic Regression, Decision Trees, OLS, Ridge and Lasso regression with `GridSearchCV`
+- **Evaluation:** accuracy, precision, recall, F1, confusion matrices; RMSE, MAE, R², residual analysis
 - **Visualization:** Seaborn/Matplotlib pairplots, heatmaps, decision boundaries
 - **Good practice:** documented notebooks, reproducible environments, version control with Git
 
@@ -31,11 +33,15 @@ This repository contains my project submissions for the **Datheon Machine Learni
 ├── README.md
 ├── LICENSE
 ├── requirements.txt
-└── task-1-iris-wine-classification/
+├── task-1-iris-wine-classification/
+│   ├── README.md
+│   ├── data/iris.csv
+│   ├── notebooks/01_classification_pipeline.ipynb
+│   └── results/
+└── task-2-california-housing-regression/
     ├── README.md
-    ├── data/
-    ├── notebooks/
-    │   └── 01_classification_pipeline.ipynb
+    ├── data/housing.csv
+    ├── notebooks/02_housing_regression.ipynb
     └── results/
 ```
 
