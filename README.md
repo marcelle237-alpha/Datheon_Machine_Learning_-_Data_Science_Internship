@@ -29,8 +29,8 @@ This repository collects the projects I completed during a self-paced, industry-
 
 ## 🚀 Getting started
 ```bash
-git clone https://github.com/marcelle237-alpha/ml-internship-portfolio.git
-cd ml-internship-portfolio
+git clone https://github.com/marcelle237-alpha/Datheon_Machine_Learning_&_Data_Science_Internship.git
+cd Datheon_Machine_Learning_&_Data_Science_Internship
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
