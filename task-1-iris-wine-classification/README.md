@@ -49,8 +49,17 @@ Build a clean, leakage-safe classification workflow and compare two interpretabl
 - Tune hyperparameters with `GridSearchCV`
 - Extend the pipeline to the **Wine** dataset and add more models (Random Forest, SVM)
 
+## 🧱 Code structure and tests
+- `notebooks/01_classification_pipeline.ipynb`: the readable report (self-contained)
+- `src/iris_pipeline.py`: the same pipeline as typed, documented, logged functions (`load_data`, `split_data`, `scale_features`, `train_models`, `evaluate_models`)
+- `tests/test_iris_pipeline.py`: 11 pytest tests (schema validation, missing/invalid values, stratified split, no data leakage in scaling, metrics)
+
 ## ▶️ Run it
 ```bash
 pip install -r ../requirements.txt
 jupyter notebook notebooks/01_classification_pipeline.ipynb
+```
+Or run the tested pipeline from the command line:
+```bash
+python src/iris_pipeline.py --data data/iris.csv
 ```

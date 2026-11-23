@@ -7,6 +7,7 @@
 ![Pandas](https://img.shields.io/badge/Pandas-Data-150458?logo=pandas&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
+![Tests](https://github.com/marcelle237-alpha/Datheon_Machine_Learning_-_Data_Science_Internship/actions/workflows/tests.yml/badge.svg)
 
 ## 📌 About
 This repository contains my project submissions for the **Datheon Machine Learning & Data Science Internship**, a self-paced, industry-modeled project internship. Each task lives in its own folder and is documented, reproducible and easy to run.
@@ -25,7 +26,7 @@ This repository contains my project submissions for the **Datheon Machine Learni
 - **Modeling:** Logistic Regression, Decision Trees, OLS, Ridge and Lasso regression with `GridSearchCV`
 - **Evaluation:** accuracy, precision, recall, F1, confusion matrices; RMSE, MAE, R², residual analysis
 - **Visualization:** Seaborn/Matplotlib pairplots, heatmaps, decision boundaries
-- **Good practice:** documented notebooks, reproducible environments, version control with Git
+- **Good practice:** documented notebooks, typed and tested modules (pytest), logging, CI with GitHub Actions, version control with Git
 
 ## 📁 Repository structure
 ```
@@ -33,16 +34,35 @@ This repository contains my project submissions for the **Datheon Machine Learni
 ├── README.md
 ├── LICENSE
 ├── requirements.txt
+├── pytest.ini
+├── .github/workflows/tests.yml       # runs linting + tests on every push
 ├── task-1-iris-wine-classification/
 │   ├── README.md
 │   ├── data/iris.csv
 │   ├── notebooks/01_classification_pipeline.ipynb
+│   ├── src/iris_pipeline.py          # typed, logged, reusable pipeline
+│   ├── tests/test_iris_pipeline.py
 │   └── results/
 └── task-2-california-housing-regression/
     ├── README.md
     ├── data/housing.csv
     ├── notebooks/02_housing_regression.ipynb
+    ├── src/housing_pipeline.py       # typed, logged, reusable pipeline
+    ├── tests/test_housing_pipeline.py
     └── results/
+```
+
+## ✅ Code quality and tests
+Each task has two layers:
+- **Notebook:** the readable report with explanations, plots and results (self-contained, so it also runs in Google Colab).
+- **`src/` module:** the same pipeline as clean, reusable code with **type hints**, **docstrings**, input validation and **`logging`** instead of print statements.
+
+Automated tests (**pytest**, 25 tests) check, among other things, that the scaler is fitted on training data only, that missing values and invalid input are handled, that the train/test split is stratified, and that models return predictions in the original units. A GitHub Actions workflow runs PEP 8 linting and the tests on every push.
+
+```bash
+pip install -r requirements.txt
+pytest
+python task-1-iris-wine-classification/src/iris_pipeline.py --data task-1-iris-wine-classification/data/iris.csv
 ```
 
 ## 🚀 Getting started

@@ -64,9 +64,18 @@ Predict median house values, handle missing values and multicollinearity, engine
 - Handle the capped target explicitly
 - Try non-linear models (Random Forest, Gradient Boosting) to capture location effects
 
+## 🧱 Code structure and tests
+- `notebooks/02_housing_regression.ipynb`: the readable report (self-contained)
+- `src/housing_pipeline.py`: the same pipeline as typed, documented, logged functions (`load_data`, `add_features`, `prepare_data`, `build_preprocessor`, `fit_models`, `evaluate_models`, `compute_vif`)
+- `tests/test_housing_pipeline.py`: 14 pytest tests (schema validation, feature engineering, zero-division guards, imputation, VIF, model fitting and metrics)
+
 ## ▶️ Run it
 ```bash
 pip install -r ../requirements.txt
 jupyter notebook notebooks/02_housing_regression.ipynb
+```
+Or run the tested pipeline from the command line:
+```bash
+python src/housing_pipeline.py --data data/housing.csv
 ```
 The notebook reads `data/housing.csv` and downloads it automatically if the file is missing.
