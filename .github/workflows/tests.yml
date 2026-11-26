@@ -15,10 +15,10 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install pandas numpy scikit-learn imbalanced-learn xgboost pytest flake8
+        run: pip install pandas numpy scikit-learn imbalanced-learn xgboost nltk pytest flake8
 
       - name: Lint (PEP 8)
-        run: flake8 --max-line-length=100 task-1-iris-wine-classification task-2-california-housing-regression task-3-telco-churn-classification
+        run: flake8 --max-line-length=100 task-1-iris-wine-classification task-2-california-housing-regression task-3-telco-churn-classification task-4-nlp-sentiment-classification
 
       - name: Run tests
         run: pytest -q

@@ -19,12 +19,14 @@ This repository contains my project submissions for the **Datheon Machine Learni
 | 1 | [**Multi-Class Benchmark Classification Pipeline (Iris)**](task-1-iris-wine-classification/) | Leakage-safe preprocessing, Logistic Regression vs. Decision Tree, confusion matrices, decision boundaries | Python · Pandas · Scikit-learn · Seaborn |
 | 2 | [**Real Estate Housing Price Prediction (Ridge & Lasso)**](task-2-california-housing-regression/) | Feature engineering, VIF multicollinearity analysis, OLS vs. Ridge vs. Lasso with GridSearchCV, residual analysis | Python · Pandas · Scikit-learn · Seaborn |
 | 3 | [**Predictive Customer Churn Classifier (Random Forest & XGBoost)**](task-3-telco-churn-classification/) | Class imbalance (class weights vs. SMOTE), cross-validation, ROC-AUC 0.85, confusion matrices, feature importance | Python · Scikit-learn · XGBoost · imbalanced-learn |
+| 4 | [**NLP Sentiment Classification on Customer Reviews (TF-IDF)**](task-4-nlp-sentiment-classification/) | Text preprocessing with NLTK, TF-IDF, Naive Bayes vs. Logistic Regression, preprocessing comparison, `predict_sentiment()` helper | Python · NLTK · Scikit-learn |
 
 ## 🛠️ Skills demonstrated
 - **Data handling:** loading, inspecting and exploring datasets with Pandas
 - **Preprocessing:** stratified train/test splits, feature scaling without data leakage
 - **Feature engineering:** ratio and interaction features, multicollinearity analysis (VIF)
 - **Modeling:** Logistic Regression, Decision Trees, OLS, Ridge and Lasso regression with `GridSearchCV`, Random Forest and XGBoost
+- **NLP:** text cleaning with NLTK (stopwords, lemmatization, negation handling), TF-IDF features, Naive Bayes vs. Logistic Regression, a `predict_sentiment()` helper
 - **Imbalanced data:** class weights, `scale_pos_weight` and SMOTE inside leakage-safe pipelines, ROC-AUC
 - **Evaluation:** accuracy, precision, recall, F1, confusion matrices; RMSE, MAE, R², residual analysis
 - **Visualization:** Seaborn/Matplotlib pairplots, heatmaps, decision boundaries
@@ -49,15 +51,22 @@ This repository contains my project submissions for the **Datheon Machine Learni
 │   ├── README.md
 │   ├── data/housing.csv
 │   ├── notebooks/02_housing_regression.ipynb
-│   ├── src/housing_pipeline.py       # typed, logged, reusable pipeline
+│   ├── src/housing_pipeline.py
 │   ├── tests/test_housing_pipeline.py
 │   └── results/
-└── task-3-telco-churn-classification/
+├── task-3-telco-churn-classification/
+│   ├── README.md
+│   ├── data/telco_churn.csv
+│   ├── notebooks/03_churn_classification.ipynb
+│   ├── src/churn_pipeline.py
+│   ├── tests/test_churn_pipeline.py
+│   └── results/
+└── task-4-nlp-sentiment-classification/
     ├── README.md
-    ├── data/telco_churn.csv
-    ├── notebooks/03_churn_classification.ipynb
-    ├── src/churn_pipeline.py         # typed, logged, reusable pipeline
-    ├── tests/test_churn_pipeline.py
+    ├── data/movie_reviews.csv, sentiment_reviews.csv
+    ├── notebooks/04_sentiment_classification.ipynb
+    ├── src/sentiment_pipeline.py
+    ├── tests/test_sentiment_pipeline.py
     └── results/
 ```
 
@@ -66,7 +75,7 @@ Each task has two layers:
 - **Notebook:** the readable report with explanations, plots and results (self-contained, so it also runs in Google Colab).
 - **`src/` module:** the same pipeline as clean, reusable code with **type hints**, **docstrings**, input validation and **`logging`** instead of print statements.
 
-Automated tests (**pytest**, 40 tests) check, among other things, that the scaler is fitted on training data only, that missing values and invalid input are handled, that the train/test split is stratified, and that models return predictions in the original units. A GitHub Actions workflow runs PEP 8 linting and the tests on every push.
+Automated tests (**pytest**, 65 tests) check, among other things, that the scaler is fitted on training data only, that missing values and invalid input are handled, that the train/test split is stratified, and that models return predictions in the original units. A GitHub Actions workflow runs PEP 8 linting and the tests on every push.
 
 ```bash
 pip install -r requirements.txt
